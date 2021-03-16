@@ -26,11 +26,12 @@ class ApiData extends Component {
      renderTableRows = () => {
           return this.state.users.map(user => {
             return (
-              <tr key={user.id}>
-                <td>{user.id}</td>
+              <tr>
+                <td><img class="round" src="${el.avatar}"/></td>
+                <td>{user.email}</td>
                 <td>{user.first_name}</td>
                 <td>{user.last_name}</td>
-                <td>{user.avatar}</td>
+                <td>{user.email}</td>
               </tr>
             )
           })
@@ -40,7 +41,7 @@ class ApiData extends Component {
           const { users } = this.state
           return users
           ? (
-               <table>
+               <table id = "details">
                     <thead>
                          <tr>
                           {this.renderTableHeader()}
