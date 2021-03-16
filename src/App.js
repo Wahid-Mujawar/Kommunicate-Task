@@ -1,12 +1,10 @@
 import React from 'react';
-import './ApiData';
-import './style.css';
-import './index.html';
+import ApiData from './Code';
 
 function App() {
   return (
     <div className="App">
-      <App/>
+      <ApiData/>
     </div>
   );
 }
