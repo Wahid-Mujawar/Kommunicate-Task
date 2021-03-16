@@ -1,6 +1,6 @@
 import React from 'react';
 import ApiData from './Code';
-import './Styles.css'
+import './Style.css'
 
 function App() {
   return (

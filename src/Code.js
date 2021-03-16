@@ -19,7 +19,7 @@ class ApiData extends Component {
 
      renderTableHeader = () => {
           return Object.keys(this.state.users[0]).map(attr => <th key={attr}>
-               {attr.toUpperCase()}
+               {attr.toLowerCase()}
                </th>)
         }
 
@@ -27,11 +27,11 @@ class ApiData extends Component {
           return this.state.users.map(user => {
             return (
               <tr>
-                <td><img class="round" src="${el.avatar}"/></td>
+               <td>{user.id}</td>
                 <td>{user.email}</td>
                 <td>{user.first_name}</td>
                 <td>{user.last_name}</td>
-                <td>{user.email}</td>
+                <td><img src="{user.avatar}" width="60" height="60"/></td>
               </tr>
             )
           })
@@ -39,9 +39,10 @@ class ApiData extends Component {
      
      render ()  {
           const { users } = this.state
+          
           return users
           ? (
-               <table id = "details">
+               <table id = "containers">
                     <thead>
                          <tr>
                           {this.renderTableHeader()}
@@ -51,9 +52,10 @@ class ApiData extends Component {
                       {this.renderTableRows()}
                      </tbody>
                </table>
+               
           ) : (
                <div>
-                    No Users
+                    No Details
                </div>
           )
      }
