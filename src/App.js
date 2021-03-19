@@ -1,14 +1,11 @@
 import React from 'react';
-import ApiData from './Code';
-import './Style.css'
-import Pagination from './Pagination';
-
+import ApiData from './ApiData';
+import './Style.css';
 
 function App() {
   return (
     <div className="App">
       <ApiData/>
-      <Pagination/>
     </div>
   );
 }
