@@ -29,15 +29,15 @@ server start at http://localhost:3000
 
 <h2>Dashboard page<h2>
 <p align="center">
-     <img src="https://github.com/Wahid-Mujawar/Kommunicate-Task/blob/master/src/snaps/dashboard.jpg" width="700px" />
+     <img src="https://github.com/Wahid-Mujawar/Kommunicate-Task/blob/master/src/snaps/dashboard.jpg" width="600px" />
 </p>
 
 <h2>Search Name<h2>
 <p align="center">
-     <img src="" width="700px" />
+     <img src="https://github.com/Wahid-Mujawar/Kommunicate-Task/blob/master/src/snaps/search.jpg" width="600px" />
 </p>
 
 <h2>Modal Pop up<h2>
 <p align="center">
-     <img src="" width="700px" />
+     <img src="https://github.com/Wahid-Mujawar/Kommunicate-Task/blob/master/src/snaps/Modal.jpg" width="600px" />
 </p>
