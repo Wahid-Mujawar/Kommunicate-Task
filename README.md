@@ -32,7 +32,7 @@ server start at http://localhost:3000
 
 <h2>Dashboard page<h2>
 <p align="center">
-     <img src="https://github.com/Wahid-Mujawar/Kommunicate-Task/blob/master/src/snaps/dashboard.jpg" width="500px" />
+     <img src="https://github.com/Wahid-Mujawar/Kommunicate-Task/blob/master/src/snaps/dashboard.jpg" width="600px" />
 </p>
 
 <h2>Search Name<h2>
