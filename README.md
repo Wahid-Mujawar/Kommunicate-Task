@@ -34,10 +34,10 @@ server start at http://localhost:3000
 
 <h2>Search Name<h2>
 <p align="center">
-     <img src="https://github.com/Wahid-Mujawar/LeagueXGamingTask_SpotifyApp/blob/master/src/snaps/albumsearch.png" width="700px" />
+     <img src="" width="700px" />
 </p>
 
 <h2>Modal Pop up<h2>
 <p align="center">
-     <img src="https://github.com/Wahid-Mujawar/LeagueXGamingTask_SpotifyApp/blob/master/src/snaps/playingsong.png" width="700px" />
+     <img src="" width="700px" />
 </p>
