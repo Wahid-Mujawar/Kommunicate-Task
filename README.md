@@ -29,7 +29,7 @@ server start at http://localhost:3000
 
 <h2>Dashboard page<h2>
 <p align="center">
-     <img src="https://github.com/Wahid-Mujawar/LeagueXGamingTask_SpotifyApp/blob/master/src/snaps/dashboard.png" width="700px" />
+     <img src="https://github.com/Wahid-Mujawar/Kommunicate-Task/blob/master/src/snaps/dashboard.jpg" width="700px" />
 </p>
 
 <h2>Search Name<h2>
