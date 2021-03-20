@@ -24,7 +24,7 @@ function useOnClickOutside(ref, handler) {
 
 const modalBackgroundPoses = {
   open: {
-    background: "rgba(0, 0, 0, 0.2)",
+    background: "rgba(0, 0, 0, 0)",
     applyAtStart: {
       display: "block"
     }
@@ -72,7 +72,7 @@ const modalPoses = {
 
 const Modal = styled(posed.div(modalPoses))`
   position: fixed;
-  background: #faf0f4;;
+  background: #fdf7f7;
   width: 40%;
   height: auto;
   top: 50%;
@@ -81,7 +81,6 @@ const Modal = styled(posed.div(modalPoses))`
   border-radius: 5px;
   padding: 10px;
   margin: center;
-  box-shadow: 0 2px 4px 0 rgba(50, 50, 93, 0.1);
 `;
 
 export default function({ isOpen, toggle, children }) {

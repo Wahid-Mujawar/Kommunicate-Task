@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getUsersByPage } from './service'
-import Modal from './Modal';
+import Modal from './Modal'
 
 const ApiData = () => {
      const [users, setUser] = useState([])
@@ -10,8 +10,6 @@ const ApiData = () => {
      const [searchTerm, setSearchTerm] = React.useState("");
      const [isModalOpen, toggleModal] = useState(false);
      const [modaluser, setmodaluser] = useState({});
-  
-   
 
      const handleChange = e => {
           console.log("e.target.value--",e.target.value)
@@ -33,7 +31,9 @@ const ApiData = () => {
 
      useEffect(() => {
           const results = users.filter(person =>
-               person.first_name.toLowerCase().includes(searchTerm)
+               person.first_name.toLowerCase().includes(searchTerm) ||
+               person.last_name.toLowerCase().includes(searchTerm) ||
+               person.email.toLowerCase().includes(searchTerm)
           );
                console.log("results",results)
                setUser(results);
@@ -52,6 +52,7 @@ const ApiData = () => {
                setTotalPages(data.page)
                setUser(data.data)
      }
+
      const DecPage = async ()=>{
           console.log("DecPage 00", initialPage);
           sePage(initialPage - 1)
@@ -74,9 +75,9 @@ const ApiData = () => {
                
                <React.Fragment>
                     <div>
-                          <input type="text" id="myInput" value={searchTerm}
-        onChange={handleChange} placeholder="Search for names.." title="Type in a name"></input>
-                   </div>
+                         <input type="text" id="myInput" value={searchTerm}
+                         onChange={handleChange} placeholder="Search for names.." title="Type in a name"></input>
+                    </div>
                      <table id="containers">
                          <thead>
                               <th>Avatar</th>
@@ -105,11 +106,10 @@ const ApiData = () => {
                     </tbody>
                     </table>
                     
-               <div class="center">
+                    <div class="center">
                     <div class="pagination">
-                      <button type="button" href="#" onClick={() => DecPage()} disabled={initialPage ==1 }>Previous</button>
-                      <button type="button" href="#" onClick={() => IncPage()} disabled={totalpages >= 3}>Next </button>
-                      
+                         <button type="button" href="#" onClick={() => DecPage()} disabled={initialPage ==1 }>Previous</button>
+                         <button type="button" href="#" onClick={() => IncPage()} disabled={totalpages >= 3}>Next </button>
                       <h5>Page {totalpages} of {lastpage}</h5>
                     </div>
                </div>
@@ -139,23 +139,15 @@ const ApiData = () => {
                               </div>
                               
                          </div>
-                    
-                         <button class="close" onClick={() => toggleModal(prev=>!prev)}/>
+                         
+                         <variant class="close" onClick={() => toggleModal(prev=>!prev)}/>
                </Modal>
                </React.Fragment>
-               
-               
-                    
-               
           ) : (
-               <div>
-                    
+               <div>    
                </div>
           )
-
 }
-
-
 
 export default ApiData
 
