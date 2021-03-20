@@ -1,8 +1,11 @@
 Simple User Info List
 
-A user info list built on Reactjs  which shows the list of users in a tabular form  with their thumbnails present in the first column.
-Pagination to the list up to 3 pages with 4 users per page with a search bar present to search the already loaded list in view.
-Whenever a user is clicked, a comprehensive view of the selected user in a modal on the same page pop up, listing out the user's complete info. 
+A user info list built on React, which shows the list of users in 
+a tabular form  with their thumbnails present in the first column.
+Added pagination to the list up to 3 pages with 4 users per page 
+with a search bar present to search the already loaded list in view.
+Whenever a user is clicked, a comprehensive view of the selected user
+in a modal on the same page pop up, listing out the user's complete info. 
 
 Languages Javascript and HTML/CSS
 Framework/Library ReactJs
