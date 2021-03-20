@@ -5,7 +5,6 @@ import posed from "react-pose";
 function useOnClickOutside(ref, handler) {
   useEffect(() => {
     const listener = event => {
-      // Do nothing if clicking ref's element or descendent elements
       if (!ref.current || ref.current.contains(event.target)) {
         return;
       }
@@ -20,7 +19,7 @@ function useOnClickOutside(ref, handler) {
       document.removeEventListener("mousedown", listener);
       document.removeEventListener("touchstart", listener);
     };
-  }, []); // Empty array ensures that effect is only run on mount and unmount
+  }, []); 
 }
 
 const modalBackgroundPoses = {
@@ -38,13 +37,17 @@ const modalBackgroundPoses = {
   }
 };
 
+
 const ModalBackground = styled(posed.div(modalBackgroundPoses))`
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
+
 
 const modalPoses = {
   open: {
@@ -69,14 +72,15 @@ const modalPoses = {
 
 const Modal = styled(posed.div(modalPoses))`
   position: fixed;
-  background: white;
-  width: 80%;
+  background: #faf0f4;;
+  width: 40%;
   height: auto;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 10px;
-  padding: 20px;
+  border-radius: 5px;
+  padding: 10px;
+  margin: center;
   box-shadow: 0 2px 4px 0 rgba(50, 50, 93, 0.1);
 `;
 

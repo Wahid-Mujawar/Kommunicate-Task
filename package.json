@@ -9,6 +9,7 @@
     "axios": "^0.21.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-icons": "^4.2.0",
     "react-pose": "^4.0.10",
     "react-scripts": "4.0.3",
     "react-simple-hook-modal": "^1.1.0",

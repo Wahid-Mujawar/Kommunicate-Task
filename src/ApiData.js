@@ -1,5 +1,5 @@
-import React, { useEffect, useContext, useState, Component } from 'react';
-import { getUsers, getUsersByPage } from './service'
+import React, { useEffect, useState } from 'react';
+import { getUsersByPage } from './service'
 import Modal from './Modal';
 
 const ApiData = () => {
@@ -106,26 +106,41 @@ const ApiData = () => {
                     </table>
                     
                <div class="center">
-                              <div class="pagination">
-                                   
-                    {/* <a href="#" class="active">1</a> */}
-                    <button type="button" href="#" onClick={() => DecPage()} disabled={initialPage ==1 }>Previous</button>
-                    <button type="button" href="#" onClick={() => IncPage()} disabled={totalpages >= 3}>Next </button>
-                    
-                              <h5>page {totalpages} of {lastpage}</h5>
+                    <div class="pagination">
+                      <button type="button" href="#" onClick={() => DecPage()} disabled={initialPage ==1 }>Previous</button>
+                      <button type="button" href="#" onClick={() => IncPage()} disabled={totalpages >= 3}>Next </button>
+                      
+                      <h5>Page {totalpages} of {lastpage}</h5>
                     </div>
-               </div>   
+               </div>
+
                 <Modal isOpen={isModalOpen} toggle={toggleModal}>
-                         <h1>user Info</h1>
+                        
+                         <div class='info'><h3>User Info</h3></div>
                          <div class="wrapper">
-                         <div><img src={modaluser.avatar}  alt="" width="200" height="200"/></div>
-                         <div>Email  : {modaluser.email}</div>
-                         <div>First Name : {modaluser.first_name}</div>
-                         <div></div>
-                         <div><div>Last Name : {modaluser.last_name}</div></div>
+                         <div><img src={modaluser.avatar}  alt="" width="150" height="150"/></div>
+
+                         <div class="details">
+
+                          <div class="mail">
+                              <div>Email  : {modaluser.email}</div>
+                              </div>
+                              <br/>
+
+                              <div class="first">
+                              <div>First Name : {modaluser.first_name}</div>
+                              <div></div>
+                              </div>
+                              <br/>
+
+                              <div class="last">
+                              <div><div>Last Name : {modaluser.last_name}</div></div>
+                              </div>
+                              </div>
+                              
                          </div>
                     
-                    <button onClick={() => toggleModal(false)}>Close</button>
+                         <button class="close" onClick={() => toggleModal(prev=>!prev)}/>
                </Modal>
                </React.Fragment>
                
