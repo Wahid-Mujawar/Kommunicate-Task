@@ -8,7 +8,7 @@
 }
 
 #containers tr:nth-child(even) {
-  background-color: #fdf7f7;
+  background-color: #fdfcf7;
 }
 #containers tr:nth-child(odd) {
   background-color: #ffffff;
@@ -93,8 +93,8 @@ input[type="text"] {
 }
 .close:before, .close:after {
   position: absolute;
-  margin-left: 480px;
-  margin-top: -230px;
+  margin-left: 470px;
+  margin-top: -30px;
   content: ' ';
   height: 25px;
   width: 3px;
@@ -118,27 +118,29 @@ input[type="text"] {
   display: grid;
   column-gap: 1px;
   row-gap: 1em;
+  margin-left: 370px;
+  margin-top: -60px;
 }
 
 .details {
-  text-align: center;
-  margin-top: -150px;
-  margin-left: 100px;
+  text-align: left;
   font-size: large;
+  margin-top: -110px;
 }
 
 .info {
   text-align: center;
-  margin-left: center;
-
+  margin-left: -320px;
 }
-
+.id {
+  margin-left: -320px;
+}
 .mail {
-  margin-left: 40px;
+  margin-left: -320px;
 }
 .first {
-  margin-left: -40px;
+  margin-left: -320px;
 }
 .last {
-  margin-left: -55px;
+  margin-left: -320px;
 }

@@ -117,11 +117,16 @@ const ApiData = () => {
                 <Modal isOpen={isModalOpen} toggle={toggleModal}>
                         
                          <div class='info'><h3>User Info</h3></div>
+                         <br/>
                          <div class="wrapper">
-                         <div><img src={modaluser.avatar}  alt="" width="150" height="150"/></div>
+                         <div><img src={modaluser.avatar}  alt="" width="120" height="120"/>
+                         </div>
 
                          <div class="details">
-
+                         <div class='id'>
+                              <div>Id : {modaluser.id}</div>
+                         </div>
+                         <br/>
                           <div class="mail">
                               <div>Email  : {modaluser.email}</div>
                               </div>
