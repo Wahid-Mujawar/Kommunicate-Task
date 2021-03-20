@@ -9,8 +9,10 @@
     "axios": "^0.21.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-paginate": "^7.1.0",
+    "react-pose": "^4.0.10",
     "react-scripts": "4.0.3",
+    "react-simple-hook-modal": "^1.1.0",
+    "styled-components": "^5.2.1",
     "web-vitals": "^1.1.0"
   },
   "scripts": {

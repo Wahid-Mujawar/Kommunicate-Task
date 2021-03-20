@@ -1,62 +1,145 @@
-import React, { Component } from 'react';
-class ApiData extends Component {
-     constructor(props){
-          super(props);
-          this.state = {
-               users:null
-          }
-     }
-     componentDidMount() {
-          fetch('https://reqres.in/api/users')
-          .then((res) => { res.json()
-               .then((result) => {
-                 this.setState({users:result.data})
-                 console.log(result.data)
-               })
-          })
-     }
-          render ()  {
-          const { users } = this.state;
+import React, { useEffect, useContext, useState, Component } from 'react';
+import { getUsers, getUsersByPage } from './service'
+import Modal from './Modal';
+
+const ApiData = () => {
+     const [users, setUser] = useState([])
+     var [initialPage, sePage] = useState(1)
+     var [totalpages, setTotalPages] = useState(1)
+     var [lastpage, setLastpage] = useState(1)
+     const [searchTerm, setSearchTerm] = React.useState("");
+     const [isModalOpen, toggleModal] = useState(false);
+     const [modaluser, setmodaluser] = useState({});
+  
+   
+
+     const handleChange = e => {
+          console.log("e.target.value--",e.target.value)
+     setSearchTerm(e.target.value);
+     };
+ 
+     useEffect(() => {
+          console.log("callling useEffect")
+          const fetchUsers = async (initialPage) => {
+               const data = await getUsersByPage(initialPage)
+               console.log("data---------", data.data)
+               totalpages = (data.total / data.per_page)
+               console.log("temptotal",totalpages)
+               setUser(data.data)
+               setLastpage(data.total_pages)
+        };    
+        fetchUsers()
+     }, [])
+
+     useEffect(() => {
+          const results = users.filter(person =>
+               person.first_name.toLowerCase().includes(searchTerm)
+          );
+               console.log("results",results)
+               setUser(results);
+               }, [searchTerm]);
+
+     console.log("------------------------------------------initialPage", initialPage)
+     
+     const IncPage = async ()=>{
+          console.log("initialPage 111", initialPage);
+          sePage(initialPage + 1)
+          initialPage += 1
+          console.log("initialPage 2222", initialPage, typeof (initialPage));
           
-          return users
+          const data = await getUsersByPage(initialPage)
+          console.log("data----222222222222-----", data.data)
+               setTotalPages(data.page)
+               setUser(data.data)
+     }
+     const DecPage = async ()=>{
+          console.log("DecPage 00", initialPage);
+          sePage(initialPage - 1)
+          initialPage -= 1
+          console.log("DecPage 2222", initialPage,typeof(initialPage));
+          const data = await getUsersByPage(initialPage)
+               console.log("data----222222222222-----",data.data)
+          setUser(data.data)
+          setTotalPages(data.page)
+     }
+
+     const singleUser = async (user)=>{
+          console.log("user 00", user);
+          setmodaluser(user)
+     
+     }
+     
+     return users
           ? (
                
-               <table id="containers">
-                    <thead>
+               <React.Fragment>
+                    <div>
+                          <input type="text" id="myInput" value={searchTerm}
+        onChange={handleChange} placeholder="Search for names.." title="Type in a name"></input>
+                   </div>
+                     <table id="containers">
+                         <thead>
+                              <th>Avatar</th>
                          <th>Id</th>
                          <th>Email</th>
                          <th>First Name</th>
                          <th>Last Name</th>
-                         <th>Avatar</th>
-
+                         
                      </thead>
                      
-               <tbody>
-                  {
-                    this.state.users.map((user) => (
-                          <tr>
-                              <td><center>{user.id}</center></td>
-                              <td>{user.email}</td>
-                              <td>{user.first_name}</td>
-                              <td>{user.last_name}</td>
-                              <td><img src="{user.avatar}" alt="" width="60" height="60"/></td>
-                          </tr>
-                      
-                    ))
-                  }
+                    <tbody>
+                    {
+                         users.map((user) => (
+                              <tr>
+                                   <td onClick={() => { toggleModal(!isModalOpen); singleUser(user);}}><img src={user.avatar}  alt="" width="60" height="60"/></td>
+                                   <td><center>{user.id}</center></td>
+                                   <td>{user.email}</td>
+                                   <td>{user.first_name}</td>
+                                   <td>{user.last_name}</td>
+                                   
+                              </tr>
+                         
+                         ))
+                    }
 
-               </tbody>
-           </table>
+                    </tbody>
+                    </table>
+                    
+               <div class="center">
+                              <div class="pagination">
+                                   
+                    {/* <a href="#" class="active">1</a> */}
+                    <button type="button" href="#" onClick={() => DecPage()} disabled={initialPage ==1 }>Previous</button>
+                    <button type="button" href="#" onClick={() => IncPage()} disabled={totalpages >= 3}>Next </button>
+                    
+                              <h5>page {totalpages} of {lastpage}</h5>
+                    </div>
+               </div>   
+                <Modal isOpen={isModalOpen} toggle={toggleModal}>
+                         <h1>user Info</h1>
+                         <div class="wrapper">
+                         <div><img src={modaluser.avatar}  alt="" width="200" height="200"/></div>
+                         <div>Email  : {modaluser.email}</div>
+                         <div>First Name : {modaluser.first_name}</div>
+                         <div></div>
+                         <div><div>Last Name : {modaluser.last_name}</div></div>
+                         </div>
+                    
+                    <button onClick={() => toggleModal(false)}>Close</button>
+               </Modal>
+               </React.Fragment>
+               
+               
+                    
                
           ) : (
                <div>
                     
                </div>
           )
-          
-     }
-     
+
 }
+
 
 
 export default ApiData
