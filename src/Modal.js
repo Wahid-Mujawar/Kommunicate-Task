@@ -19,7 +19,7 @@ function useOnClickOutside(ref, handler) {
       document.removeEventListener("mousedown", listener);
       document.removeEventListener("touchstart", listener);
     };
-  }, []); 
+  },); 
 }
 
 const modalBackgroundPoses = {
@@ -83,7 +83,7 @@ const Modal = styled(posed.div(modalPoses))`
   margin: center;
 `;
 
-export default function({ isOpen, toggle, children }) {
+const Info=({ isOpen, toggle, children }) =>{
   const ref = useRef();
 
   useOnClickOutside(ref, () => toggle(false));
@@ -94,3 +94,5 @@ export default function({ isOpen, toggle, children }) {
     </ModalBackground>
   );
 }
+
+export default Info
