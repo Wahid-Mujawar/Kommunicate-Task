@@ -22,7 +22,7 @@ const ApiData = () => {
                setLastpage(data.total_pages)
         };    
         fetchUsers()
-     }, [])
+     }, []);
 
      useEffect(() => {
           const results = users.filter(person =>
@@ -106,7 +106,7 @@ const ApiData = () => {
                     <div className="pagination">
                          <button type="button" href="#" onClick={() => DecPage()} disabled={initialPage === 1 }>Previous</button>
                          <button type="button" href="#" onClick={() => IncPage()} disabled={totalpages >= 3}>Next </button>
-                      <h5>Page {totalpages} of {lastpage}</h5>
+                         <h5>Page {totalpages} of {lastpage}</h5>
                     </div>
                </div>
 

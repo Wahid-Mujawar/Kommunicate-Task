@@ -14,7 +14,6 @@ export const getUsers = async() => {
 
 export const getUsersByPage = async (page) => {
     const url = `https://reqres.in/api/users?page=${page}&per_page=4`
-    console.log("url",url)
     const details = await axios.get(url).catch((e) => {
         console.error(e);
     })
