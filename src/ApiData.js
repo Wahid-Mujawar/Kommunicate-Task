@@ -59,7 +59,7 @@ const ApiData = () => {
      console.error = (...x) => {
           // console.log(x)
      // debugger;
-     if (x[0] === "Warning: The tag <%s> is unrecognized in this browser.If you meant to render a React component, start its name with an uppercase letter.%s") {
+     if (x[0] ===  "Warning: The tag <%s> is unrecognized in this browser. If you meant to render a React component, start its name with an uppercase letter.%s") {
           return;
       }
           realError(...x);
