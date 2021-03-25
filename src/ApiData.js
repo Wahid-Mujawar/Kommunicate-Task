@@ -36,7 +36,6 @@ const ApiData = () => {
      const IncPage = async ()=>{
           sePage(initialPage + 1)
           initialPage += 1
-          
           const data = await getUsersByPage(initialPage)
                setTotalPages(data.page)
                setUser(data.data)
@@ -45,7 +44,6 @@ const ApiData = () => {
      const DecPage = async ()=>{
           sePage(initialPage - 1)
           initialPage -= 1
-          console.log("DecPage 2222", initialPage,typeof(initialPage));
           const data = await getUsersByPage(initialPage)
           setUser(data.data)
           setTotalPages(data.page)
@@ -61,7 +59,7 @@ const ApiData = () => {
      console.error = (...x) => {
           // console.log(x)
      // debugger;
-     if (x[0] === "Warning: The tag <%s> is unrecognized in this browser. If you meant to render a React component, start its name with an uppercase letter.%s") {
+     if (x[0] === "Warning: The tag <%s> is unrecognized in this browser.If you meant to render a React component, start its name with an uppercase letter.%s") {
           return;
       }
           realError(...x);
@@ -73,8 +71,9 @@ const ApiData = () => {
                <React.Fragment>
                     <div>
                          <input type="text" id="myInput" value={searchTerm}
-                         onChange={handleChange} placeholder="Search for names.." title="Type in a name"></input>
+                          onChange={handleChange} placeholder="Search for names.." title="Type in a name"></input>
                     </div>
+                    
                      <table id="containers">
                          <thead>
                               <tr>
@@ -141,7 +140,7 @@ const ApiData = () => {
                               
                          </div>
                          
-                         <variant className="close" onClick={() => toggleModal(prev=>!prev)}/>
+                         <variant className="close" onClick={() => toggleModal(false)}/>
                </Modal>
                </React.Fragment>
           ) : (

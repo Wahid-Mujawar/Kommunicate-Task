@@ -8,7 +8,7 @@
 }
 
 #containers tr:nth-child(even) {
-  background-color: #fdfcf7;
+  background-color: #e1fcd2;
 }
 #containers tr:nth-child(odd) {
   background-color: #ffffff;
